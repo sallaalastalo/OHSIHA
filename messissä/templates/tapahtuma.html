@@ -1,0 +1,68 @@
+<html>
+<head>
+    <meta charset="UTF-8">
+
+    <title>Document</title>
+
+    <style>
+        table {
+            font-family:'Times New Roman', Times, serif;
+            border-collapse: separate;
+            width: 100%;
+        }
+
+        td, th {
+            border: 3px solid #000000;
+            text-align: left;
+            padding: 10px;
+        }
+
+        tr:nth-child(even) {
+            background-color: #FFFFFF;
+        }    
+    
+    </style>
+</head>
+<body>
+    <h3> Urheilusuorituksesi:</h3>
+    <ul>
+        {% for tapahtuma in tapahtuma %}
+            <a href="{% url 'update_event' tapahtuma.id %}">
+                <li> {{ tapahtuma.name }}</li>
+            </a>
+        {% endfor %}
+    </ul> 
+
+</body>
+
+    <p>
+        Haluatko lisätä uuden urheilusuorituksen listaasi? Klikkaa 
+        <a href="{% url 'create_event' %}">tästä!</a>
+    </p>
+
+
+<body>
+    <h3>Urheilutapahtumia Tampereella</h3>
+
+    <table>
+        <tr>
+
+            <th>Tapahtuman nimi</th>
+            <th> Tapahtuman kuvaus</th>
+            <th> Tapahtuman aika</th>
+        </tr>
+
+        {% for event in event_list %}
+        
+        <tr>
+            <td><a href="{{event.contact_info.link}}"><li>{{ event.title }}</li></a></td>
+        
+            <td> {{ event.description }} </td>
+            <td>{{event.pvm | date:"D d M Y" }}</td>
+        </tr>
+        {% endfor %}
+
+    </table>
+
+</body>
+</html>

@@ -1,0 +1,10 @@
+<body>
+        <form method="post">
+            {%	csrf_token	%}
+            <h3>Haluatko	varmasti	poistaa	suorituksen	{{	tapahtuma.name	}}	?</h3>
+            <p>
+            Takaisin	suoritusten	päivittämis	-sivulle	pääset	painamalla	edellistä.
+            </p>
+            <button type="submit">Poista</button>
+        </form>
+</body>

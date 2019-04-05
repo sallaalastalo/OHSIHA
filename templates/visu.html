@@ -1,0 +1,71 @@
+<html>
+    <body>
+        <script src="https://code.highcharts.com/highcharts.js"></script>
+        <script src="https://code.highcharts.com/modules/data.js"></script>
+        <script src="https://code.highcharts.com/modules/exporting.js"></script>
+        <script src="https://code.highcharts.com/modules/export-data.js"></script>
+
+        <div id="container" style="min-width: 310px; height: 400px; margin: 0 auto"></div>
+        
+        <table id="datatable">
+            <thead>
+                <tr>
+                    <th></th>
+                    <th>2018</th>
+                    <th>2019</th>
+                  
+
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <th>Musiikki</th>
+                    <td>{{tag.music}}</td>
+                </tr>
+                <tr>
+                    <th>Kulttuuri</th>
+                    <td>{{tag.sport}}</td>
+
+                </tr>
+                <tr>
+                    <th>Tanssi</th>
+                    <td>{{tag.restaurant}}</td>
+                </tr>
+            </tbody>
+
+        </table>
+        <script>
+            Highcharts.chart('container', {
+                data:{
+                    table: 'datatable'
+                },
+
+                chart: {
+                    type: 'column'
+                },
+                
+                title: {
+                    text:"Tapahtumien määrä kategoroittain Tampereella"
+                },
+
+                yAxis: {
+                    allowDecimals: false,
+                    title: {
+                        text: 'Tapahtumien määrä'
+                    }
+                },
+
+                tooltip: {
+                    formatter: function() {
+                        return '<b>' + this.series.name + '</b><br/>'+
+                        this.point.y + ' ' + this.point.name.toLowerCase();
+
+                    }
+
+                }
+            });
+                    
+            
+        </script>
+    </body>
+</html>

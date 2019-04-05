@@ -1,0 +1,18 @@
+<body>
+        <h1>Lisää tai päivitä urheilusuorituksiasi</h1>
+        <p>						
+            Tällä	sivulla	voit	lisätä	listaasi	uuden	urheilusuorituksen	tai	
+            päivittää	jo	lisättyjä tietoja.	Takaisin	listauskeen
+            pääset	painamalla	edellistä.
+        </p>
+        
+        <form method="POST">
+            {%	csrf_token	%}
+            {{ form }}
+            <button type="submit">Tallenna</button>
+        </form>
+        {%	if	tapahtuma	%}
+            <a href="{%	url	'delete_event'	tapahtuma.id	%}" >Poista	suoritus</a>
+        {%	endif %}
+</body>
+
